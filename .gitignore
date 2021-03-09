@@ -4,6 +4,9 @@
 # environment variables
 .env
 
+# db
+.database
+
 # Binaries for programs and plugins
 *.exe
 *.exe~
