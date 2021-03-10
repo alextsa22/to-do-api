@@ -1,5 +1,8 @@
 .SILENT:
 
+test:
+	go test ./pkg/handler/
+
 docker-dependencies = Dockerfile docker-compose.yml wait-for-postgres.sh
 
 build: $(docker-dependencies)
