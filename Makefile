@@ -2,6 +2,7 @@
 
 test:
 	go test ./pkg/handler/
+	go test ./pkg/repository/
 
 docker-dependencies = Dockerfile docker-compose.yml wait-for-postgres.sh
 
