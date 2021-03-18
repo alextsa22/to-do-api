@@ -4,23 +4,19 @@ test:
 	go test ./pkg/handler/
 	go test ./pkg/repository/
 
-docker-dependencies = Dockerfile docker-compose.yml wait-for-postgres.sh
-
-build: $(docker-dependencies)
+build:
 	docker-compose build to-do-app
 
-up: $(docker-dependencies)
+up:
 	docker-compose up to-do-app
 
-clean: $(docker-dependencies)
-	docker-compose stop db
-	docker-compose stop to-do-app
-	docker-compose rm db to-do-app
+down:
+	docker-compose stop down
 
-migrate-up: ./schema
+migrate-up:
 	migrate -path ./schema -database 'postgres://postgres:qwerty@0.0.0.0:5432/postgres?sslmode=disable' up
 
-migrate-down: ./schema
+migrate-down:
 	migrate -path ./schema -database 'postgres://postgres:qwerty@0.0.0.0:5432/postgres?sslmode=disable' down
 
 swag:
