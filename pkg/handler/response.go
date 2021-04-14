@@ -14,6 +14,8 @@ type ErrorResponse struct {
 }
 
 func NewErrorResponse(c *gin.Context, statusCod int, message string) {
-	logrus.Error(message)
+	if gin.Mode() != gin.TestMode {
+		logrus.Error(message)
+	}
 	c.AbortWithStatusJSON(statusCod, ErrorResponse{Message: message})
 }

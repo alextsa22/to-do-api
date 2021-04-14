@@ -72,6 +72,7 @@ func TestHandler_singUp(t *testing.T) {
 			services := &service.Service{Authorization: auth}
 			handler := NewHandler(services)
 
+			gin.SetMode(gin.TestMode)
 			r := gin.New()
 			r.POST("/sign-up", handler.signUp)
 
