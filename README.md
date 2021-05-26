@@ -3,7 +3,7 @@
 Description
 ----------- 
 
-REST API for creating task lists in Go
+REST API for creating task lists in Go.
  
 Installation instructions
 --------------------------
